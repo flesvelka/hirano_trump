@@ -39,7 +39,7 @@ console.log("Express server listening on port %d in %s mode", app.address().port
 
 var io = require('socket.io').listen(app);
 
-trump = io.of('/game.html').on('connection', function (socket) {
+trump = io.of('/game').on('connection', function (socket) {
 	socket.json.emit('test', test);
 	socket.on('trump test', function(data) {
 		points.push(data);
