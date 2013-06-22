@@ -4,7 +4,7 @@
 
 var express = require('express');
 var app = module.exports = express.createServer();
-
+console.log("test1");
 // Configuration
 
 app.configure(function(){
@@ -15,7 +15,7 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
-
+console.log("test2");
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 });
