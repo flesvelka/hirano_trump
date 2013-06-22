@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 
+console.log("test");
 var express = require('express');
 var app = module.exports = express.createServer();
 console.log("test1");
