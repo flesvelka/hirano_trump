@@ -39,10 +39,13 @@ console.log("Express server listening on port %d in %s mode", app.address().port
 
 var io = require('socket.io').listen(app);
 
-trump = io.of('/game.html').on('connection', function (socket) {
-	socket.json.emit('test', test);
-	socket.on('trump test', function(data) {
-		points.push(data);
-		paint.emit('paint points', data);
+function handler(req, res) {
+	fs.readFile(__dirname + '/game.html', function(err, data) {
+		if (err) {
+			res.writeHead(500);
+			return res.end('Error loading index.html');
+		}
+		res.writeHead(200);
+		res.end(data);
 	});
-});
+}
