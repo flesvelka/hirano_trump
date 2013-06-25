@@ -7,6 +7,7 @@ http.createServer(function (req, res) { // httpサーバを立てる
   fs.readFile('game.html', function(err, data) { // ファイルを読み込み、変数dataに代入
     if (err) { 
 	consle.log("file is not exists");  // ファイルが見つからない
+	process.exit(1); // 終了
     }
     console.log("file read");
 
@@ -14,4 +15,4 @@ http.createServer(function (req, res) { // httpサーバを立てる
         res.end(data); // 読み込んだファイルを表示
     });
 
-}).listen(80);
+}).listen(80); // port80でサーバ待機
