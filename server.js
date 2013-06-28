@@ -5,7 +5,12 @@ http.createServer(function (req, res) { // httpサーバを立てる
 
   fs.readFile('game.html', function(err, data) { // ファイルを読み込み、変数dataに代入
     if (err) { 
-	consle.log("file is not exists");  // ファイルが見つからない
+	consle.log("game.html is not exists");  // ファイルが見つからない
+	process.exit(1); // 終了
+    }
+  fs.readFile('style.css', function(err, css) { // ファイルを読み込み、変数dataに代入
+    if (err) { 
+	consle.log("style.css is not exists");  // ファイルが見つからない
 	process.exit(1); // 終了
     }
     console.log("file read");
